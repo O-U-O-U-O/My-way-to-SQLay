@@ -21,7 +21,8 @@ ORDER BY PRODUCT.WARE ASC
   
 SELECT WARE, MAX(PRICE), MIN(PRICE)
 FROM PRODUCT
-GROUP BY WARE;
+GROUP BY WARE
+ORDER BY WARE  
 
 
 --3.2 Show top 3 wares with the most difference between minimal and maximal prices.
