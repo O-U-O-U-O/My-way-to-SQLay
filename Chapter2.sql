@@ -41,9 +41,21 @@ GROUP BY WARE
 ORDER BY COUNT(PRODUCT.WARE) DESC
 LIMIT 0, 3
 
+--3.4 Show the price of the most expensive ware for each category. The result should be ordered by the category
 
+SELECT MAX(PRICE), CATEGORY.CLASS
+FROM CATEGORY, PRODUCT
+WHERE CATEGORY.WARE = PRODUCT.WARE
+GROUP BY CATEGORY.CLASS
+ORDER BY CLASS ASC  
 
-
+--3.6 Get all the companies in alphabetical order that producing at least 2 different wares from the same category
+  
+SELECT DISTINCT MANUFACTURER.COMPANY, SUM(PRODUCT.AMOUNT), SUM(MATERIAL.AMOUNT)   FROM MANUFACTURER, PRODUCT, MATERIAL
+WHERE MANUFACTURER.RECIPE_ID = PRODUCT.RECIPE_ID = MATERIAL.RECIPE_ID
+AND PRODUCT.AMOUNT > MATERIAL.AMOUNT
+GROUP BY MANUFACTURER.COMPANY 
+ORDER BY MANUFACTURER.COMPANY
 
 --4.1 Show the product with the largest average price over the market.
   
