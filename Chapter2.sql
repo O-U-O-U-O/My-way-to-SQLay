@@ -9,7 +9,7 @@ ORDER BY COMPANY ASC;
 
 --2.3 Get all the unique wares in alphabetical order that can be produced from wares in Mineral category.
 
-SELECT DISTINCT PRODUCT.WARE FROM PRODUCT
+SELECT PRODUCT.WARE FROM PRODUCT
 INTERSECT
 SELECT CATEGORY.WARE FROM CATEGORY
 WHERE CATEGORY.CLASS = 'Mineral'
