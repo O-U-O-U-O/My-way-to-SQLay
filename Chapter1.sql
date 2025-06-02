@@ -18,7 +18,8 @@ WHERE COMPANY LIKE 'A%' OR COMPANY LIKE 'B%'
 ORDER BY COMPANY  
 
 --1.5 Get all the unique final products (i.e. the wares that are not in use as a material anywhere)
-SELECT DISTINCT WARE FROM PRODUCT
+  
+SELECT WARE FROM PRODUCT
 EXCEPT
 SELECT WARE FROM MATERIAL 
   
@@ -45,7 +46,7 @@ FROM PRODUCT
 
 --1.9 Get the average price and variance price of Meat, both rounded to one decimal point.
   
-SELECT ROUND(AVG(PRICE))
+SELECT ROUND(AVG(PRICE)), ROUND(AVG(SQRT(PRICE)) - SQRT(AVG(PRICE)))
 FROM PRODUCT
 WHERE WARE = 'Meat'
 
