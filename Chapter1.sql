@@ -46,7 +46,7 @@ FROM PRODUCT
 
 --1.9 Get the average price and variance price of Meat, both rounded to one decimal point.
   
-SELECT ROUND(AVG(PRICE)), ROUND(AVG(SQRT(PRICE)) - SQRT(AVG(PRICE)))
+SELECT ROUND(AVG(PRICE)), ROUND(AVG(SQUARE(PRICE)) - SQUARE(AVG(PRICE)))
 FROM PRODUCT
 WHERE WARE = 'Meat'
 
